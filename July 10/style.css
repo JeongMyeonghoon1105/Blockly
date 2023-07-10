@@ -270,3 +270,8 @@ button {
   bottom: 0;
   background-color: white;
 }
+
+
+#control-container.scroll::-webkit-scrollbar {
+  display: none;
+}

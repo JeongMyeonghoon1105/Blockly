@@ -17,8 +17,6 @@
   <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
   <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/mobilenet"></script>
   <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/knn-classifier"></script>
- 
-  
   <!--<script src="../../blocks/blocks.js"></script>
   <script src="../../blocks/logic.js"></script>
   <script src="../../blocks/loops.js"></script>
@@ -39,7 +37,6 @@
   <script src="../../generators/javascript/variables.js"></script>
   <script src="../../generators/javascript/procedures.js"></script>-->
 </head>
-
 <body>
   <!-- Temporal object detecting trigger -->
   <button id ="classA">Add first label</button>
@@ -131,21 +128,29 @@
       <canvas id="canvas" ></canvas>
     </div>
   </div>
-    <button id="trashButton" class="notext" title="...">
-      <img src='./1x1.gif' class="trash icon21">
-    </button>
-    <button  id="runButton" class="notext primary" title="...">
-      <img src='./1x1.gif' class="run icon21">
-    </button>
-  <div id="control-container" style="height: 480px; width: 600px;"></div>
-    
+  <!-- Blocks / Output -->
+  <div style="width: 100%; display: flex;">
+    <!-- Blocks -->
+    <div style="width: 50%;">
+      <button id="trashButton" class="notext" title="...">
+        <img src='./1x1.gif' class="trash icon21">
+      </button>
+      <button id="runButton" class="notext primary" title="...">
+        <img src='./1x1.gif' class="run icon21">
+      </button>
+      <div id="control-container" style="height: 480px; width: 100%;"></div>
+      <!-- <div id="control-container" style="height: 480px; width: 600px;"></div> -->
+    </div>
+    <!-- Output -->
+    <div style="width: 50%;">
+      <textarea id="output" disabled="disabled" style="display: inline-block; height: 480px; width: 100%; margin-top: 28px;"></textarea>
+      <!-- <textarea id="output" disabled="disabled" style="display: inline-block; height: 480px; width: 38%;"></textarea> -->
+    </div>
+  </div>
   </div>
   <div style="width: 100%">
     <div id="blocklyDiv"
         style="display: inline-block; height: 480px; width: 58%"></div>
-    <textarea id="output" disabled="disabled"
-        style="display: inline-block; height: 480px; width: 38%;">
-    </textarea>
   </div> 
 
 </div>
