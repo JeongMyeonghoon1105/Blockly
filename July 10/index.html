@@ -96,12 +96,17 @@
                         <div class="grid-child yellow">
                           <img id="connectId" src="disconnected.png">
                         </div> -->
-                        <fieldset>
+                        <!-- Toggle Switch(CSS) -->
+                        <!-- <fieldset>
                           <label>
-                            <input role="switch" type="checkbox" />
+                            <input id="connectID" role="switch" type="checkbox" />
                             <span>Connect</span>
                           </label>
-                        </fieldset>
+                        </fieldset> -->
+                        <!-- Toggle Switch -->
+                        <div class="toggle" id="open">
+                          <div class="switch" id="connectID"></div>
+                        </div>
                     </div>
                   </div>
                 </div>
@@ -641,11 +646,21 @@
   let stopScroll = disableScroll();
 
   // To change CoPlay control channel connect image 
+  // function connImgChange(status){
+  //   if(status == "on"){
+  //     $("#connectId").attr("src", "connected.png");
+  //   }else if(status == "off"){
+  //     $("#connectId").attr("src", "disconnected.png");
+  //   }		
+  // }
   function connImgChange(status){
     if(status == "on"){
-      $("#connectId").attr("src", "connected.png");
-    }else if(status == "off"){
-      $("#connectId").attr("src", "disconnected.png");
+      $("#connectId").attr("style", "background-color: white");
+      $("#open").attr("style", "background-color: tomato;");
+      $("#open").attr("id", "close");
+    } else if(status == "off"){
+      $("#connectId").attr("style", "background-color: white; left: 0;");
+      $("#close").attr("style", "background-color: white;");
     }		
   }
   // To change CoPlay camera channel connect image 
