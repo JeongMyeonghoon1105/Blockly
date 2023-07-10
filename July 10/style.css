@@ -249,8 +249,10 @@ button {
 }
 
 #video-container {
-  width: 320px;
-  height: 240px;
+  position: fixed;
+  right: 0;
+  width: 30%;
+  height: 50%;
   background-color: #000;
   float: left;
 }
@@ -366,12 +368,19 @@ fieldset {
 }
 
 .switch {
-  left: 0;
+  /* left: 0; */
   width: 1em;
   height: 1em;
+  border: max(2px, 0.1em) solid black;
   border-radius: 50%;
-  transform: scale(0.8);
-  background-color: gray;
-  transition: left 250ms linear;
-  left: 1em;
+  /* transform: scale(0.8);
+  transition: left 250ms linear; */
+  /* left: 1em; */
+}
+
+.division {
+  display: flex;
+  width: 100%;
+  height: 50%;
+  position: fixed; 
 }

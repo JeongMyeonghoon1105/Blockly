@@ -38,141 +38,108 @@
   <script src="../../generators/javascript/procedures.js"></script>-->
 </head>
 <body>
-<div id="container">
-  <!-- Temporal object detecting trigger -->
-  <div id="image-classification">
-    <button id ="classA">Add first label</button>
-  <button id ="classB">Add second label</button>
-  <button id ="classC">Perform inference </button>
-  <table>
-    <tr>
-      <td> <h1 style="color:#007700;">Number of first label </h1></td>
-      <td> <h1 id="label_1">0</h1></td>
-      <td> <h1 style="color:#007700;">Number of second label </h1></td>
-      <td> <h1 id="label_2">0</h1></td>
-    </tr>
-  </table>
-  <table>
-    <tr>
-      <td> <h1 style="color:#0000FF;">Angle</h1></td>
-      <td> <h1 id="angle">0</h1></td>
-      <td> <h1 style="color:#0000FF;">Front sensor </h1></td>
-      <td> <h1 id="frontSensor">0</h1></td>
-      <td> <h1 style="color:#0000FF;">Left sensor </h1></td>
-      <td> <h1 id="leftSensor">0</h1></td>
-      <td> <h1 style="color:#0000FF;">Right sensor </h1></td>
-      <td> <h1 id="rightSensor">0</h1></td>
-      <td> <h1 style="color:#0000FF;">Rear sensor </h1></td>
-      <td> <h1 id="rearSensor">0</h1></td>
-    </tr>
-  </table>
-  </div>
-  <div id="upper-half">
-    <div id="connection-container">
-      <main id="main" class="main" style="height: 100%; top: 0;">
-
-        <div class="pagetitle">
-          <h1>Control Pannel</h1>
-        </div><!-- End Page Title -->
-    
-        <section class="section dashboard">
-          <div class="row">
-    
-            <!-- Left side columns -->
-            <div class="col-lg-8">
-              <div class="row">
-    
-                <!-- Card 1 -->
-                <div class="col-xxl-4 col-md-6">
-                  <div class="card info-card sales-card">
-                    <h5 class="card-title">Robot Control <span>|</span></h5>
-                      <div>마스로버 컨트롤 채널 선택 : <select id="channles" ></select></div>
-                      <div class="grid-container">
-                        <!-- <div class="grid-child purple">
-                          <button class="button" id="open"> Connect  </button>
-                        </div>
-                        <div class="grid-child green">
-                          <button class="button" id="close">Disconnect</button>
-                        </div>
-                        <div class="grid-child yellow">
-                          <img id="connectId" src="disconnected.png">
-                        </div> -->
-                        <!-- Toggle Switch(CSS) -->
-                        <!-- <fieldset>
-                          <label>
-                            <input id="connectID" role="switch" type="checkbox" />
-                            <span>Connect</span>
-                          </label>
-                        </fieldset> -->
-                        <!-- Toggle Switch -->
-                        <div class="toggle" id="open">
-                          <div class="switch" id="connectID"></div>
-                        </div>
-                    </div>
-                  </div>
+  <div id="container">
+    <div class="division" style="top: 0;">
+      <!-- Image Classification -->
+      <div id="image-classification">
+        <button id ="classA">Add first label</button>
+        <button id ="classB">Add second label</button>
+        <button id ="classC">Perform inference </button>
+        <table>
+          <tr>
+            <td> <h1 style="color:#007700;">Number of first label </h1></td>
+            <td> <h1 id="label_1">0</h1></td>
+            <td> <h1 style="color:#007700;">Number of second label </h1></td>
+            <td> <h1 id="label_2">0</h1></td>
+          </tr>
+        </table>
+        <table>
+          <tr>
+            <td> <h1 style="color:#0000FF;">Angle</h1></td>
+            <td> <h1 id="angle">0</h1></td>
+            <td> <h1 style="color:#0000FF;">Front sensor </h1></td>
+            <td> <h1 id="frontSensor">0</h1></td>
+            <td> <h1 style="color:#0000FF;">Left sensor </h1></td>
+            <td> <h1 id="leftSensor">0</h1></td>
+            <td> <h1 style="color:#0000FF;">Right sensor </h1></td>
+            <td> <h1 id="rightSensor">0</h1></td>
+            <td> <h1 style="color:#0000FF;">Rear sensor </h1></td>
+            <td> <h1 id="rearSensor">0</h1></td>
+          </tr>
+        </table>
+      </div>
+      <!-- Robot Control -->
+      <div style="display: block;">
+        <!-- Rover -->
+        <h5 class="card-title">Robot Control</h5>
+        <div>마스로버 컨트롤 채널 선택 : <select id="channles" ></select></div>
+        <div class="grid-container">
+          <div class="toggle" id="open">
+            <div class="switch" id="connectID"></div>
+          </div>
+        </div>
+        <!-- Camera -->
+        <h5 class="card-title">Camera Connect</h5>
+        <div>카메라 채널 선택 : <select id="cam_channles" ></select></div>
+        <div class="grid-container">
+          <div class="toggle" id="cam_open">
+            <div class="switch" id="camConnectID"></div>
+          </div>
+        </div>
+        <!-- <div class="col-xxl-4 col-md-6">
+          <div class="card info-card sales-card">
+            <h5 class="card-title">Camera Connect <span>|</span></h5>
+              <div>카메라 채널 선택 : <select id="cam_channles" ></select></div>
+              <div class="grid-container">
+                <div class="grid-child purple">
+                  <button class="button" id="cam_open"> Connect  </button>
                 </div>
-
-                <!-- Card 2 -->
-                <div class="col-xxl-4 col-md-6">
-                  <div class="card info-card sales-card">
-                    <h5 class="card-title">Camera Connect <span>|</span></h5>
-                      <div>카메라 채널 선택 : <select id="cam_channles" ></select></div>
-                      <div class="grid-container">
-                        <!-- <div class="grid-child purple">
-                          <button class="button" id="cam_open"> Connect  </button>
-                        </div>
-                        <div class="grid-child green">
-                          <button class="button" id="cam_close">Disconnect</button>
-                        </div>
-                        <div class="grid-child yellow">
-                          <img id="camConnectId" src="disconnected.png">
-                        </div> -->
-                        <fieldset>
-                          <label>
-                            <input role="switch" type="checkbox" />
-                            <span>Connect</span>
-                          </label>
-                        </fieldset>
-                    </div>
-                  </div>
+                <div class="grid-child green">
+                  <button class="button" id="cam_close">Disconnect</button>
                 </div>
-              </div><!-- End Customers Card -->
+                <div class="grid-child yellow">
+                  <img id="camConnectId" src="disconnected.png">
+                </div>
+                <fieldset>
+                  <label>
+                    <input role="switch" type="checkbox" />
+                    <span>Connect</span>
+                  </label>
+                </fieldset>
             </div>
           </div>
-        </section>
-      </main><!-- End #main -->
+        </div> -->
+      </div>
+      <!-- Video Container -->
+      <div id="video-container">
+        <canvas id="canvas"></canvas>
+      </div>
     </div>
-    <div id="video-container">
-      <canvas id="canvas" ></canvas>
+    <!-- Blocks / Output -->
+    <div class="division" style="bottom: 0; border-top: 1px solid lightgray;">
+      <!-- Blocks -->
+      <div style="width: 50%;">
+        <button id="trashButton" class="notext" title="...">
+          <img src='./1x1.gif' class="trash icon21">
+        </button>
+        <button id="runButton" class="notext primary" title="...">
+          <img src='./1x1.gif' class="run icon21">
+        </button>
+        <div id="control-container" style="height: 100%; width: 100%;"></div>
+        <!-- <div id="control-container" style="height: 480px; width: 600px;"></div> -->
+      </div>
+      <!-- Output -->
+      <div style="width: 50%;">
+        <textarea id="output" disabled="disabled" style="display: inline-block; height: 100%; width: 100%; margin-top: 27px; border-radius: 0;"></textarea>
+        <!-- <textarea id="output" disabled="disabled" style="display: inline-block; height: 480px; width: 38%;"></textarea> -->
+      </div>
+      <!-- <div style="width: 100%">
+        <div id="blocklyDiv" style="display: inline-block; height: 480px; width: 58%"></div>
+      </div> -->
     </div>
   </div>
-  <!-- Blocks / Output -->
-  <div style="width: 100%; display: flex; position: fixed; bottom: 0;">
-    <!-- Blocks -->
-    <div style="width: 50%;">
-      <button id="trashButton" class="notext" title="...">
-        <img src='./1x1.gif' class="trash icon21">
-      </button>
-      <button id="runButton" class="notext primary" title="...">
-        <img src='./1x1.gif' class="run icon21">
-      </button>
-      <div id="control-container" style="height: 480px; width: 100%;"></div>
-      <!-- <div id="control-container" style="height: 480px; width: 600px;"></div> -->
-    </div>
-    <!-- Output -->
-    <div style="width: 50%;">
-      <textarea id="output" disabled="disabled" style="display: inline-block; height: 480px; width: 100%; margin-top: 26.5px; border-radius: 0;"></textarea>
-      <!-- <textarea id="output" disabled="disabled" style="display: inline-block; height: 480px; width: 38%;"></textarea> -->
-    </div>
-  </div>
-  </div>
-  <div style="width: 100%">
-    <div id="blocklyDiv"
-        style="display: inline-block; height: 480px; width: 58%"></div>
-  </div> 
-
-</div>
 </body>
+
 <xml xmlns="https://developers.google.com/blockly/xml" id="toolbox" style="display: none">
   <category name="Mars Rover control" colour=200>
     <block type="move_forward"></block>
@@ -217,7 +184,8 @@
     <block type="text_print"></block>
     <block type="console_print"></block>
   </category>
-</xml> 
+</xml>
+
 <script>
   // create name space 
   let Code = {};
@@ -650,17 +618,16 @@
   // function connImgChange(status){
   //   if(status == "on"){
   //     $("#connectId").attr("src", "connected.png");
-  //   }else if(status == "off"){
+  //   } else if(status == "off"){
   //     $("#connectId").attr("src", "disconnected.png");
   //   }		
   // }
   function connImgChange(status){
     if(status == "on"){
-      $("#connectId").attr("style", "background-color: white");
+      $("#connectId").attr("style", "background-color: white;");
       $("#open").attr("style", "background-color: tomato;");
-      $("#open").attr("id", "close");
     } else if(status == "off"){
-      $("#connectId").attr("style", "background-color: white; left: 0;");
+      $("#connectId").attr("style", "background-color: lightgray;");
       $("#close").attr("style", "background-color: white;");
     }		
   }
@@ -1020,4 +987,106 @@
     };
   }  // end of draw()
 </script>
+
 </html>
+
+<!-- Temporal object detecting trigger -->
+  <!-- <div id="image-classification">
+    <button id ="classA">Add first label</button>
+  <button id ="classB">Add second label</button>
+  <button id ="classC">Perform inference </button>
+  <table>
+    <tr>
+      <td> <h1 style="color:#007700;">Number of first label </h1></td>
+      <td> <h1 id="label_1">0</h1></td>
+      <td> <h1 style="color:#007700;">Number of second label </h1></td>
+      <td> <h1 id="label_2">0</h1></td>
+    </tr>
+  </table>
+  <table>
+    <tr>
+      <td> <h1 style="color:#0000FF;">Angle</h1></td>
+      <td> <h1 id="angle">0</h1></td>
+      <td> <h1 style="color:#0000FF;">Front sensor </h1></td>
+      <td> <h1 id="frontSensor">0</h1></td>
+      <td> <h1 style="color:#0000FF;">Left sensor </h1></td>
+      <td> <h1 id="leftSensor">0</h1></td>
+      <td> <h1 style="color:#0000FF;">Right sensor </h1></td>
+      <td> <h1 id="rightSensor">0</h1></td>
+      <td> <h1 style="color:#0000FF;">Rear sensor </h1></td>
+      <td> <h1 id="rearSensor">0</h1></td>
+    </tr>
+  </table>
+  </div>
+  <div id="upper-half">
+    <div id="connection-container">
+      <main id="main" class="main" style="height: 100%; top: 0;">
+
+        <div class="pagetitle">
+          <h1>Control Pannel</h1> -->
+        <!-- </div>End Page Title -->
+
+        <!-- <div class="row">
+          <h5 class="card-title">Robot Control</h5>
+          <div>마스로버 컨트롤 채널 선택 : <select id="channles" ></select></div>
+          <div class="grid-container"> -->
+            <!-- <div class="grid-child purple">
+              <button class="button" id="open"> Connect  </button>
+            </div>
+            <div class="grid-child green">
+              <button class="button" id="close">Disconnect</button>
+            </div>
+            <div class="grid-child yellow">
+              <img id="connectId" src="disconnected.png">
+            </div> -->
+            <!-- <div class="toggle" id="open">
+              <div class="switch" id="connectID"></div>
+            </div>
+          </div> -->
+          <!-- Card 2 -->
+          <!-- <div class="col-xxl-4 col-md-6">
+            <div class="card info-card sales-card">
+              <h5 class="card-title">Camera Connect <span>|</span></h5>
+                <div>카메라 채널 선택 : <select id="cam_channles" ></select></div>
+                <div class="grid-container"> -->
+                  <!-- <div class="grid-child purple">
+                    <button class="button" id="cam_open"> Connect  </button>
+                  </div>
+                  <div class="grid-child green">
+                    <button class="button" id="cam_close">Disconnect</button>
+                  </div>
+                  <div class="grid-child yellow">
+                    <img id="camConnectId" src="disconnected.png">
+                  </div> -->
+                  <!-- <fieldset>
+                    <label>
+                      <input role="switch" type="checkbox" />
+                      <span>Connect</span>
+                    </label>
+                  </fieldset>
+              </div>
+            </div>
+          </div>
+        </div> -->
+    
+        <!-- <section class="section dashboard">
+          <div class="row"> -->
+    
+            <!-- Left side columns -->
+            <!-- <div class="col-lg-8">
+              <div class="row"> -->
+    
+                <!-- Card 1 -->
+                <!-- <div class="col-xxl-4 col-md-6">
+                  <div class="card info-card sales-card">
+                    
+                  </div>
+                </div> -->
+
+                
+              <!-- </div>
+            </div>
+          </div>
+        </section> -->
+      <!-- </main>End #main -->
+    <!-- </div>
